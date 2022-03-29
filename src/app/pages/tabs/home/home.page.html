@@ -14,69 +14,12 @@
         <p>Discover unique tastes near you</p>
       </ion-label>
     </ion-list-header>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="" />
-      </ion-thumbnail>
-      <ion-label>
-        <h4>Stay fit</h4>
-        <ion-text color="medium">
-          <p>Italian, Mexican</p>
-        </ion-text>
-        <span>
-          <ion-icon name="star"></ion-icon>
-          5.
-        </span>
-        25 mins , 4 km
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="" />
-      </ion-thumbnail>
-      <ion-label>
-        <h4>Stay fit</h4>
-        <ion-text color="medium">
-          <p>Italian, Mexican</p>
-        </ion-text>
-        <span>
-          <ion-icon name="star"></ion-icon>
-          5.
-        </span>
-        25 mins , 4 km
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="" />
-      </ion-thumbnail>
-      <ion-label>
-        <h4>Stay fit</h4>
-        <ion-text color="medium">
-          <p>Italian, Mexican</p>
-        </ion-text>
-        <span>
-          <ion-icon name="star"></ion-icon>
-          5.
-        </span>
-        25 mins , 4 km
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="" />
-      </ion-thumbnail>
-      <ion-label>
-        <h4>Stay fit</h4>
-        <ion-text color="medium">
-          <p>Italian, Mexican</p>
-        </ion-text>
-        <span>
-          <ion-icon name="star"></ion-icon>
-          5 ,
-        </span>
-        25 mins , 4 km
-      </ion-label>
-    </ion-item>
+
+    <ion-item-group *ngIf="restaurants">
+      <app-restaurant
+        *ngFor="let restaurant of restaurants"
+        [restaurant]="restaurant"
+      ></app-restaurant>
+    </ion-item-group>
   </ion-list>
 </ion-content>

@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   banners: any[];
+  restaurants: any[];
 
   constructor() {}
 
   ngOnInit() {
     this.loadBanners();
+    this.loadRestaurants();
   }
 
   loadBanners() {
@@ -30,6 +32,38 @@ export class HomePage implements OnInit {
         banner: '',
         link: '',
         text: 'Pune Missal',
+      },
+    ];
+  }
+
+  loadRestaurants() {
+    this.restaurants = [
+      {
+        image: '',
+        rating: 4.5,
+        link: '',
+        distance: '3.2 km',
+        known_for: 'Italian',
+        name: 'Dominos Pizza',
+        delivery_time: '20 mins',
+      },
+      {
+        image: '',
+        rating: 5,
+        link: '',
+        distance: '3 km',
+        known_for: 'Italian, North Indian',
+        text: 'Hyderabadi Biryani',
+        delivery_time: '40 mins',
+      },
+      {
+        image: '',
+        rating: 4,
+        link: '',
+        distance: '4 km',
+        known_for: 'Italian, Chinese',
+        text: 'Pune Missal',
+        delivery_time: '15 mins',
       },
     ];
   }

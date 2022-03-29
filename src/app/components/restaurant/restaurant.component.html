@@ -1,3 +1,16 @@
-<p>
-  restaurant works!
-</p>
+<ion-item *ngIf="restaurant">
+  <ion-thumbnail slot="start">
+    <img src="" />
+  </ion-thumbnail>
+  <ion-label>
+    <h4>{{ restaurant.name }}</h4>
+    <ion-text color="medium">
+      <p>{{ restaurant.known_for }}</p>
+    </ion-text>
+    <span>
+      <ion-icon name="star"></ion-icon>
+      {{ restaurant.rating }} ,
+    </span>
+    {{ restaurant.delivery_time }} , {{ restaurant.distance }}
+  </ion-label>
+</ion-item>
