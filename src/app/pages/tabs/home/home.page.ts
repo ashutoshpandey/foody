@@ -6,10 +6,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  banners: any[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.loadBanners();
   }
 
+  loadBanners() {
+    this.banners = [
+      {
+        banner: '',
+        link: '',
+        text: 'Dominos Pizza',
+      },
+      {
+        banner: '',
+        link: '',
+        text: 'Hyderabadi Biryani',
+      },
+      {
+        banner: '',
+        link: '',
+        text: 'Pune Missal',
+      },
+    ];
+  }
 }
