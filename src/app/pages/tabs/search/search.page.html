@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search</ion-title>
+    <ion-searchbar
+      animated="true"
+      (ionChange)="onSearchChange($event)"
+    ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <app-restaurant
+    *ngFor="let restaurant of restaurants"
+    [restaurant]="restaurant"
+    [routerLink]="['/', 'tabs', 'restaurant', restaurant.uuid]"
+  ></app-restaurant>
 </ion-content>

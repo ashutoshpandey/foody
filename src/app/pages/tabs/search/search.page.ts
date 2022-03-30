@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements OnInit {
+  restaurants: any[];
 
-  constructor() { }
+  constructor(private restaurantService: RestaurantService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onSearchChange(event) {
+    this.searchRestaurants(event.detail.value);
   }
 
+  async searchRestaurants(key: string) {
+    this.restaurants = await this.restaurantService.searchRestaurants(key);
+  }
 }

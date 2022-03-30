@@ -19,6 +19,7 @@
       <app-restaurant
         *ngFor="let restaurant of restaurants"
         [restaurant]="restaurant"
+        [routerLink]="['/', 'tabs', 'restaurant', restaurant.uuid]"
       ></app-restaurant>
     </ion-item-group>
   </ion-list>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BannerService } from 'src/app/services/banner.service';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-home',
@@ -9,62 +11,21 @@ export class HomePage implements OnInit {
   banners: any[];
   restaurants: any[];
 
-  constructor() {}
+  constructor(
+    private bannerService: BannerService,
+    private restaurantService: RestaurantService
+  ) {}
 
   ngOnInit() {
     this.loadBanners();
     this.loadRestaurants();
   }
 
-  loadBanners() {
-    this.banners = [
-      {
-        banner: '',
-        link: '',
-        text: 'Dominos Pizza',
-      },
-      {
-        banner: '',
-        link: '',
-        text: 'Hyderabadi Biryani',
-      },
-      {
-        banner: '',
-        link: '',
-        text: 'Pune Missal',
-      },
-    ];
+  async loadBanners() {
+    this.banners = await this.bannerService.getBanners();
   }
 
-  loadRestaurants() {
-    this.restaurants = [
-      {
-        image: '',
-        rating: 4.5,
-        link: '',
-        distance: '3.2 km',
-        known_for: 'Italian',
-        name: 'Dominos Pizza',
-        delivery_time: '20 mins',
-      },
-      {
-        image: '',
-        rating: 5,
-        link: '',
-        distance: '3 km',
-        known_for: 'Italian, North Indian',
-        text: 'Hyderabadi Biryani',
-        delivery_time: '40 mins',
-      },
-      {
-        image: '',
-        rating: 4,
-        link: '',
-        distance: '4 km',
-        known_for: 'Italian, Chinese',
-        text: 'Pune Missal',
-        delivery_time: '15 mins',
-      },
-    ];
+  async loadRestaurants() {
+    this.restaurants = await this.restaurantService.getRestaurants();
   }
 }

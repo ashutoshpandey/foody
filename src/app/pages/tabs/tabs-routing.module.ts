@@ -35,6 +35,13 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'restaurant/:uuid',
+    loadChildren: () =>
+      import('./restaurant/restaurant.module').then(
+        (m) => m.RestaurantPageModule
+      ),
+  },
 ];
 
 @NgModule({
