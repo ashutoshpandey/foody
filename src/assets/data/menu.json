@@ -2,70 +2,68 @@
   {
     "uuid": "a",
     "menu": {
-      "items": {
-        "chinese": {
-          "name": "Chinese",
-          "items": [
-            {
-              "type": "veg",
-              "name": "Chinese Choupsey",
-              "price": "250",
-              "description": "Sweet but tastes great"
-            },
-            {
-              "type": "veg",
-              "name": "Munchurion",
-              "price": "220",
-              "description": "Tangy taste with smoky flavor"
-            },
-            {
-              "type": "veg",
-              "name": "Hakka Noodles",
-              "price": "120",
-              "description": "Singapore hakka noddles"
-            }
-          ]
-        },
-        "southindian": {
-          "name": "South Indian",
-          "items": [
-            {
-              "type": "veg",
-              "name": "Plain dosa",
-              "price": "80",
-              "description": "Simple plain dosa"
-            },
-            {
-              "type": "veg",
-              "name": "Masala dosa",
-              "price": "120",
-              "description": "Dosa filled with potato and spices"
-            },
-            {
-              "type": "veg",
-              "name": "Idli sambhar",
-              "price": "100",
-              "description": "South Indian idli"
-            }
-          ]
-        },
-        "northindian": {
-          "name": "North Indian",
-          "items": [
-            {
-              "type": "nonveg",
-              "name": "Chicken tandoori",
-              "price": "300",
-              "description": "Roasted chicken with a touch of cream"
-            },
-            {
-              "type": "nonveg",
-              "name": "Chicken lollipop",
-              "price": "350",
-              "description": "Chinese style chicken lollypop"
-            }
-          ]
-        }
+      "chinese": {
+        "name": "Chinese",
+        "items": [
+          {
+            "type": "veg",
+            "name": "Chinese Choupsey",
+            "price": "250",
+            "description": "Sweet but tastes great"
+          },
+          {
+            "type": "veg",
+            "name": "Munchurion",
+            "price": "220",
+            "description": "Tangy taste with smoky flavor"
+          },
+          {
+            "type": "veg",
+            "name": "Hakka Noodles",
+            "price": "120",
+            "description": "Singapore hakka noddles"
+          }
+        ]
+      },
+      "southindian": {
+        "name": "South Indian",
+        "items": [
+          {
+            "type": "veg",
+            "name": "Plain dosa",
+            "price": "80",
+            "description": "Simple plain dosa"
+          },
+          {
+            "type": "veg",
+            "name": "Masala dosa",
+            "price": "120",
+            "description": "Dosa filled with potato and spices"
+          },
+          {
+            "type": "veg",
+            "name": "Idli sambhar",
+            "price": "100",
+            "description": "South Indian idli"
+          }
+        ]
+      },
+      "northindian": {
+        "name": "North Indian",
+        "items": [
+          {
+            "type": "nonveg",
+            "name": "Chicken tandoori",
+            "price": "300",
+            "description": "Roasted chicken with a touch of cream"
+          },
+          {
+            "type": "nonveg",
+            "name": "Chicken lollipop",
+            "price": "350",
+            "description": "Chinese style chicken lollypop"
+          }
+        ]
       }
     }
   }

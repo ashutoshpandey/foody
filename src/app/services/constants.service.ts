@@ -9,4 +9,7 @@ export class ConstantsService {
     GET_RESTAURANTS: 'assets/data/restaurants.json',
     SEARCH_RESTAURANTS: 'assets/data/restaurants.json',
   };
+
+  TYPE_VEG: string = 'VEG';
+  TYPE_NONVEG: string = 'NONVEG';
 }

@@ -4,10 +4,10 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant',
-  templateUrl: './restaurant.page.html',
-  styleUrls: ['./restaurant.page.scss'],
+  templateUrl: './restaurant-detail.page.html',
+  styleUrls: ['./restaurant-detail.page.scss'],
 })
-export class RestaurantPage implements OnInit {
+export class RestaurantDetailPage implements OnInit {
   menus: any;
   restaurant: any;
   restaurantUuid: string;

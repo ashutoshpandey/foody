@@ -3,9 +3,9 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
-import { RestaurantPage } from './restaurant.page';
+import { RestaurantDetailPage } from './restaurant-detail.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { RestaurantPageRoutingModule } from './restaurant-routing.module';
+import { RestaurantPageRoutingModule } from './restaurant-detail-routing.module';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { RestaurantPageRoutingModule } from './restaurant-routing.module';
     ComponentsModule,
     RestaurantPageRoutingModule,
   ],
-  declarations: [RestaurantPage],
+  declarations: [RestaurantDetailPage],
 })
-export class RestaurantPageModule {}
+export class RestaurantDetailPageModule {}

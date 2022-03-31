@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{restaurant?.name}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">{{restaurant?.name}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">{{restaurant?.address}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">{{restaurant?.known_for}}</ion-col>
+    </ion-row>
+
+    <ion-row class="bottom-border">
+      <ion-col size="4" class="ion-text-center">{{restaurant?.rating}}</ion-col>
+      <ion-col size="4" class="ion-text-center"
+        >{{restaurant?.delivery_time}}</ion-col
+      >
+      <ion-col size="4" class="ion-text-center"
+        >{{restaurant?.distance}}</ion-col
+      >
+    </ion-row>
+
+    <ion-row *ngIf="menus">
+      <ion-col size="12">
+        <app-menu [menus]="menus"></app-menu>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
