@@ -8,8 +8,8 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  banners: any[];
-  restaurants: any[];
+  banners: any;
+  restaurants: any;
 
   constructor(
     private bannerService: BannerService,

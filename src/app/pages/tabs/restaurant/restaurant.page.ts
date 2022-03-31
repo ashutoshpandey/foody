@@ -8,6 +8,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
   styleUrls: ['./restaurant.page.scss'],
 })
 export class RestaurantPage implements OnInit {
+  menus: any;
   restaurant: any;
   restaurantUuid: string;
 
@@ -27,6 +28,10 @@ export class RestaurantPage implements OnInit {
   async getRestaurant() {
     this.restaurant = await this.restaurantService.getRestaurant(
       this.restaurantUuid
+    );
+
+    this.menus = await this.restaurantService.getRestaurantMenu(
+      this.restaurant.uuid
     );
   }
 }

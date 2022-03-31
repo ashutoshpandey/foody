@@ -7,7 +7,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
   styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements OnInit {
-  restaurants: any[];
+  restaurants: any;
 
   constructor(private restaurantService: RestaurantService) {}
 

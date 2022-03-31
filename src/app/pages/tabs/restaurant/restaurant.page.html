@@ -7,4 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <div>{{restaurant?.address}}</div>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        <h4>Restaurants near by</h4>
+        <p>Discover unique tastes near you</p>
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item-group *ngIf="menus">
+      <app-menu [menus]="menus"></app-menu>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
