@@ -33,6 +33,7 @@ export class MenuComponent implements OnInit {
       if (!this.menuItems[key]) {
         this.menuItems[key] = {};
         this.menuItems[key].items = [];
+        this.menuItems[key].name = menu[key].name;
       }
 
       menu[key].items.forEach((item: any) => {
