@@ -12,6 +12,10 @@ export class RestaurantDetailPage implements OnInit {
   restaurant: any;
   restaurantUuid: string;
 
+  cart: any = {};
+  itemCount: number = 0;
+  totalAmount: number = 0;
+
   constructor(
     private route: ActivatedRoute,
     private restaurantService: RestaurantService
@@ -33,5 +37,9 @@ export class RestaurantDetailPage implements OnInit {
     this.menus = await this.restaurantService.getRestaurantMenu(
       this.restaurant.uuid
     );
+  }
+
+  updateCartCount($event) {
+    this.cart = $event;
   }
 }

@@ -33,8 +33,17 @@
 
     <ion-row *ngIf="menus">
       <ion-col size="12">
-        <app-menu [menus]="menus"></app-menu>
+        <app-menu
+          [menus]="menus"
+          (notifyUpdateCart)="updateCartCount($event)"
+        ></app-menu>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer *ngIf="cart.itemCount > 0">
+  <ion-toolbar color="success">
+    <h4>{{cart.itemCount}} Item(s) | ₹ {{cart.totalAmount}}</h4>
+  </ion-toolbar>
+</ion-footer>

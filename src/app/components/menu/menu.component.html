@@ -16,17 +16,30 @@
   <ng-container *ngFor="let item of menuItem.value.items">
     <ion-item>
       <ion-thumbnail slot="start">
-        <img src="" />
+        <img
+          [src]="item?.image ? item.image : 'assets/menu/default-item.png'"
+        />
       </ion-thumbnail>
       <ion-label class="item-name">
         <h4>{{ item?.name }}</h4>
         <p class="ion-text-wrap">{{ item?.description }}</p>
         <p>{{ item?.price }}</p>
       </ion-label>
+
       <ion-row class="ion-add-row">
-        <ion-icon color="success" name="remove-outline"></ion-icon>
-        <ion-text class="ion-padding-horizontal" color="success">0</ion-text>
-        <ion-icon color="success" name="add-outline"></ion-icon>
+        <ion-icon
+          color="success"
+          name="remove-outline"
+          (click)="removeCartItem(item)"
+        ></ion-icon>
+        <ion-text class="ion-padding-horizontal" color="success">{{
+          item.count
+        }}</ion-text>
+        <ion-icon
+          color="success"
+          name="add-outline"
+          (click)="addCartItem(item)"
+        ></ion-icon>
       </ion-row>
     </ion-item>
   </ng-container>

@@ -6,18 +6,21 @@
         "name": "Chinese",
         "items": [
           {
+            "id": 1,
             "type": "veg",
             "name": "Chinese Choupsey",
             "price": "250",
             "description": "Sweet but tastes great"
           },
           {
+            "id": 2,
             "type": "veg",
             "name": "Munchurion",
             "price": "220",
             "description": "Tangy taste with smoky flavor"
           },
           {
+            "id": 3,
             "type": "veg",
             "name": "Hakka Noodles",
             "price": "120",
@@ -29,18 +32,21 @@
         "name": "South Indian",
         "items": [
           {
+            "id": 4,
             "type": "veg",
             "name": "Plain dosa",
             "price": "80",
             "description": "Simple plain dosa"
           },
           {
+            "id": 5,
             "type": "veg",
             "name": "Masala dosa",
             "price": "120",
             "description": "Dosa filled with potato and spices"
           },
           {
+            "id": 6,
             "type": "veg",
             "name": "Idli sambhar",
             "price": "100",
@@ -52,12 +58,14 @@
         "name": "North Indian",
         "items": [
           {
+            "id": 7,
             "type": "nonveg",
             "name": "Chicken tandoori",
             "price": "300",
             "description": "Roasted chicken with a touch of cream"
           },
           {
+            "id": 8,
             "type": "nonveg",
             "name": "Chicken lollipop",
             "price": "350",

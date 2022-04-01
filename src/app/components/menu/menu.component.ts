@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ConstantsService } from 'src/app/services/constants.service';
 
 @Component({
@@ -8,11 +9,18 @@ import { ConstantsService } from 'src/app/services/constants.service';
 })
 export class MenuComponent implements OnInit {
   @Input() menus: any;
+  @Output() notifyUpdateCart: EventEmitter<any> = new EventEmitter<any>();
+
+  cart: any = {};
   veg: boolean = false;
 
   menuItems: any;
 
-  constructor(private constantsService: ConstantsService) {}
+  constructor(private constantsService: ConstantsService) {
+    this.cart.itemCount = 0;
+    this.cart.totalAmount = 0;
+    this.cart.cartItems = [];
+  }
 
   ngOnInit() {
     this.prepareMenuItems();
@@ -26,7 +34,7 @@ export class MenuComponent implements OnInit {
 
   prepareMenuItems() {
     let menu = this.menus.menu;
-    console.log(this.menus.menu);
+
     this.menuItems = {};
 
     for (let key in menu) {
@@ -46,5 +54,90 @@ export class MenuComponent implements OnInit {
         }
       });
     }
+  }
+
+  addCartItem(item: any) {
+    this.addItemToCart(item);
+  }
+
+  removeCartItem(item: any) {
+    this.removeItemFromCart(item);
+  }
+
+  addItemToCart(item: any) {
+    // Check if item is already added to cart, if yes, add count
+    // Otherwise add to cart
+
+    let found: boolean = false;
+    this.cart.cartItems.forEach((cartItem) => {
+      // if item is already added to cart, increase count
+      if (cartItem.item.id == item.id) {
+        found = true;
+        cartItem.count++;
+
+        if (!item.count) {
+          item.count = 0;
+        }
+
+        item.count++;
+      }
+    });
+
+    // if item is not added to cart, add it
+    if (!found) {
+      item.count = 1;
+
+      this.cart.cartItems.push({
+        count: 1,
+        item: item,
+      });
+    }
+
+    this.updateCartCountTotal();
+  }
+
+  removeItemFromCart(item: any) {
+    // Check if item is already added to cart, if yes, add count
+    // Otherwise add to cart
+
+    let tempCartItems: any = [];
+    let found: boolean = false;
+    this.cart.cartItems.forEach((cartItem) => {
+      // if item is already added to cart, increase count
+      if (cartItem.item.id == item.id) {
+        found = true;
+        cartItem.count--;
+
+        // if item was added multiple times, just decrease count
+        if (cartItem.count > 0) {
+          item.count--;
+          tempCartItems.push(cartItem);
+        } else {
+          item.count = 0;
+        }
+      } else {
+        tempCartItems.push(cartItem);
+      }
+    });
+
+    // if item is not added to cart, add it
+    if (!found) {
+      console.log('Item not added to cart');
+    } else {
+      this.cart.cartItems = tempCartItems;
+      this.updateCartCountTotal();
+    }
+  }
+
+  updateCartCountTotal() {
+    this.cart.itemCount = 0;
+    this.cart.totalAmount = 0;
+
+    this.cart.cartItems.forEach((cartItem) => {
+      this.cart.itemCount += cartItem.count;
+      this.cart.totalAmount += parseFloat(cartItem.item.price) * cartItem.count;
+    });
+
+    this.notifyUpdateCart.emit(this.cart);
   }
 }
