@@ -1,5 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { StorageService } from 'src/app/services/storage.service';
 import { ConstantsService } from 'src/app/services/constants.service';
 
 @Component({
@@ -16,13 +17,26 @@ export class MenuComponent implements OnInit {
 
   menuItems: any;
 
-  constructor(private constantsService: ConstantsService) {
+  constructor(
+    private storageService: StorageService,
+    private constantsService: ConstantsService
+  ) {
     this.cart.itemCount = 0;
     this.cart.totalAmount = 0;
     this.cart.cartItems = [];
   }
 
   ngOnInit() {
+    this.loadCart();
+  }
+
+  async loadCart() {
+    let storedCart = await this.storageService.getValue('cart');
+
+    if (storedCart) {
+      this.cart = storedCart;
+    }
+
     this.prepareMenuItems();
   }
 
@@ -137,6 +151,8 @@ export class MenuComponent implements OnInit {
       this.cart.itemCount += cartItem.count;
       this.cart.totalAmount += parseFloat(cartItem.item.price) * cartItem.count;
     });
+
+    this.storageService.setValue('cart', this.cart);
 
     this.notifyUpdateCart.emit(this.cart);
   }
