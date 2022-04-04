@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>cart</ion-title>
+    <ion-title>Cart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="cart">
+  <ion-list *ngFor="let cartItem of cart.cartItems | keyvalue">
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img
+          [src]="cartItem.value.item?.image ? cartItem.value.item.image : 'assets/menu/default-item.png'"
+        />
+      </ion-thumbnail>
+      <ion-label class="item-name">
+        <h4>{{ cartItem.value.item?.name }}</h4>
+        <p class="ion-text-wrap">{{ cartItem.value.item?.description }}</p>
+        <p>{{ cartItem.value.item?.price }}</p>
+      </ion-label>
 
+      <ion-row class="ion-add-row">
+        <ion-icon
+          color="success"
+          name="remove-outline"
+          (click)="removeCartItem(cartItem.value.item)"
+        ></ion-icon>
+        <ion-text class="ion-padding-horizontal" color="success"
+          >{{ cartItem.value.count }}</ion-text
+        >
+        <ion-icon
+          color="success"
+          name="add-outline"
+          (click)="addCartItem(cartItem.value.item)"
+        ></ion-icon>
+      </ion-row>
+    </ion-item>
+  </ion-list>
 </ion-content>

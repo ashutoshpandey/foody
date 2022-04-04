@@ -1,5 +1,5 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 export class RestaurantDetailPage implements OnInit {
   menus: any;
   restaurant: any;
+  baseUrl: string;
   restaurantUuid: string;
 
   cart: any = {};
@@ -17,9 +18,12 @@ export class RestaurantDetailPage implements OnInit {
   totalAmount: number = 0;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private restaurantService: RestaurantService
-  ) {}
+  ) {
+    this.baseUrl = '/tabs';
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -41,5 +45,9 @@ export class RestaurantDetailPage implements OnInit {
 
   updateCartCount($event) {
     this.cart = $event;
+  }
+
+  viewCart() {
+    this.router.navigate([this.baseUrl + '/cart/' + this.restaurantUuid]);
   }
 }

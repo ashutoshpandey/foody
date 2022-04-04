@@ -43,7 +43,7 @@
 </ion-content>
 
 <ion-footer *ngIf="cart.itemCount > 0">
-  <ion-toolbar color="success">
+  <ion-toolbar color="success" (click)="viewCart()">
     <h4>{{cart.itemCount}} Item(s) | ₹ {{cart.totalAmount}}</h4>
   </ion-toolbar>
 </ion-footer>

@@ -20,11 +20,7 @@ export class MenuComponent implements OnInit {
   constructor(
     private storageService: StorageService,
     private constantsService: ConstantsService
-  ) {
-    this.cart.itemCount = 0;
-    this.cart.totalAmount = 0;
-    this.cart.cartItems = [];
-  }
+  ) {}
 
   ngOnInit() {
     this.loadCart();
@@ -35,6 +31,12 @@ export class MenuComponent implements OnInit {
 
     if (storedCart) {
       this.cart = storedCart;
+      this.updateCartCountTotal();
+    } else {
+      this.cart.itemCount = 0;
+      this.cart.totalAmount = 0;
+
+      this.cart.cartItems = [];
     }
 
     this.prepareMenuItems();

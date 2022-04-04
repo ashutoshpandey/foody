@@ -10,12 +10,14 @@ export class StorageService {
   async setValue(key: string, value: any) {
     await Storage.set({
       key: key,
-      value: value,
+      value: JSON.stringify(value),
     });
   }
 
   async getValue(key: string) {
-    return await Storage.get({ key: key });
+    return await Storage.get({ key: key }).then((val) => {
+      return JSON.parse(val.value);
+    });
   }
 
   async removeValue(key: string) {

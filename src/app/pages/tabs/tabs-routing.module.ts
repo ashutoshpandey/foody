@@ -19,7 +19,7 @@ const routes: Routes = [
           import('./account/account.module').then((m) => m.AccountPageModule),
       },
       {
-        path: 'cart',
+        path: 'cart/:uuid',
         loadChildren: () =>
           import('./cart/cart.module').then((m) => m.CartPageModule),
       },
